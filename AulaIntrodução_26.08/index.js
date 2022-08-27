@@ -1,5 +1,5 @@
 let nome = 'Ricardo';
-let idade = 28;
+// let idade = 28;
 let isHomem = true;
 let religiao = null;
 // null = valor nulo, pode ser alterado
@@ -12,19 +12,11 @@ const conjuntoDinamico = ['Ricardo', 28];
 // acessar posição no log conjuntoDinamico[0]
 // Ex: Const array=object.freeze['ricardo',28] não permite alterações
 
-function exibirDados() {
-  console.log(
-    'Nome: ' +
-      nome +
-      '\n' +
-      'Idade: ' +
-      idade +
-      '\n' +
-      'Religiao: ' +
-      religiao +
-      '\n' +
-      conjuntoString
-  );
+function exibirDados(idade) {
+  console.log(`Nome: ${nome}
+    Idade: ${idade} 
+    Religiao:  ${religiao} 
+    ${conjuntoString} `);
 }
 
-exibirDados();
+exibirDados(28);

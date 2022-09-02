@@ -26,4 +26,8 @@ function exibirDados(idade) {
 
 // Valores falsos -> null, undefinied, ' ' (srting vazia), 0 (zero), NaN (Not a Number), false.
 
+// true EE true = true
+// true EE false = false
+// false EE false = true
+
 exibirDados(28);

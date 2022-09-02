@@ -19,6 +19,8 @@ function exibirDados(idade) {
     ${conjuntoString} `);
 }
 
+exibirDados(28);
+
 //Funciona como uma função instanciada em uma variavel ---->          const vazio = () => {}
 // {} = abrir escopo
 //function -> modo primitivo            /   arrow function  -> modo atual de utilização de funções
@@ -34,4 +36,15 @@ function exibirDados(idade) {
 //true || false = true;
 // false || false = false;
 
-exibirDados(28);
+//-------------------------------------------------------------------------------------
+//             const condicao = false;
+//             console.log(condicao || 'mathias');
+//   Se condição for falsa, retorna 'mathias'
+// ------------------------------------------------------------------------------------
+//             const condicao = false;
+//             console.log(condicao ? 'mathias' :null);
+//   Se condição for verdadeira, retorna 'mathias', caso falsa, retorna null
+//--------------------------------------------------------------------------------------
+//             const condicao ;
+//             console.log(condicao ?? 'mathias');
+//   Se condição for undefined ou null, retorna 'mathias'

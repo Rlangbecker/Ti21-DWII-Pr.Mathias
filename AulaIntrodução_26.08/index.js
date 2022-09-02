@@ -19,4 +19,11 @@ function exibirDados(idade) {
     ${conjuntoString} `);
 }
 
+//Funciona como uma função instanciada em uma variavel ---->          const vazio = () => {}
+// {} = abrir escopo
+//function -> modo primitivo            /   arrow function  -> modo atual de utilização de funções
+//(Ex: arrow function) const vazio = (p1='ricardo', p2 = 'joao')=> `${p1} ${p2`;     ----> forma de função sem abrir escopo
+
+// Valores falsos -> null, undefinied, ' ' (srting vazia), 0 (zero), NaN (Not a Number), false.
+
 exibirDados(28);

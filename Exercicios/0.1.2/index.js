@@ -6,12 +6,12 @@ const compraDezPorCento = (isConvenio, isCartao, valorCompra) =>
 
 function validadorDesconto(valorCompra, isConvenio, isCartao) {
   if (
-    (isConvenio === true && isCartao === false) ||
-    (isConvenio === false && isCartao === true)
+    (isConvenio && isCartao === false) ||
+    (isConvenio === false && isCartao)
   ) {
     let descontoDez = compraDezPorCento(isConvenio, isCartao, valorCompra);
     return descontoDez;
-  } else if (isCartao === true && isConvenio === true) {
+  } else if (isCartao && isConvenio) {
     let deconstoQuinze = compraQuinzePorCento(
       isConvenio,
       isCartao,
@@ -23,4 +23,4 @@ function validadorDesconto(valorCompra, isConvenio, isCartao) {
   }
 }
 
-console.log(validadorDesconto(100, false, false));
+console.log(validadorDesconto(100, true, true));

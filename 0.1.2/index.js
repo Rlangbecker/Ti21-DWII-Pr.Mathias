@@ -1,20 +1,20 @@
 let valorCompra = 100;
-let temConvenio = false;
-let temCartao = true;
+let isConvenio = false;
+let isCartao = true;
 
-const compraQuinzePorCento = (temConvenio, temCartao, valorCompra) =>
-  temConvenio && temCartao ? valorCompra - valorCompra * 0.15 : valorCompra;
+const compraQuinzePorCento = (isConvenio, isCartao, valorCompra) =>
+  isConvenio && isCartao ? valorCompra - valorCompra * 0.15 : valorCompra;
 
-const compraDezPorCento = (temConvenio, temCartao, valorCompra) =>
-  (temConvenio && temCartao) || valorCompra - valorCompra * 0.1;
+const compraDezPorCento = (isConvenio, isCartao, valorCompra) =>
+  (isConvenio && isCartao) || valorCompra - valorCompra * 0.1;
 
 if (
-  (temConvenio === true && temCartao === false) ||
-  (temConvenio === false && temCartao === true)
+  (isConvenio === true && isCartao === false) ||
+  (isConvenio === false && isCartao === true)
 ) {
-  console.log(compraDezPorCento(temConvenio, temCartao, valorCompra));
-} else if (temCartao === true && temConvenio === true) {
-  console.log(compraQuinzePorCento(temConvenio, temCartao, valorCompra));
+  console.log(compraDezPorCento(isConvenio, isCartao, valorCompra));
+} else if (isCartao === true && isConvenio === true) {
+  console.log(compraQuinzePorCento(isConvenio, isCartao, valorCompra));
 } else {
   console.log(valorCompra);
 }

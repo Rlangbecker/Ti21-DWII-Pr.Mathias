@@ -4,37 +4,35 @@ function validadorDesconto(
   isCartao,
   isPrimeiraCompra
 ) {
-  const compraCincoPorCento = (
-    valorCompra,
-    isConvenio,
-    isCartao,
-    isPrimeiraCompra
-  ) => valorCompra - valorCompra * 0.05;
-  const compraDezPorCento = (isConvenio, isCartao, valorCompra) =>
-    valorCompra - valorCompra * 0.1;
-  const compraQuinzePorCento = (isConvenio, isCartao, valorCompra) =>
+  const compraCincoPorCento = (valorCompra) => valorCompra - valorCompra * 0.05;
+  const compraDezPorCento = (valorCompra) => valorCompra - valorCompra * 0.1;
+  const compraQuinzePorCento = (valorCompra) =>
     valorCompra - valorCompra * 0.15;
-  if (
-    isCartao &&
-    isConvenio &&
-    valorCompra < 100 &&
-    isPrimeiraCompra === false
-  ) {
-    return compraDezPorCento(isConvenio, isCartao, valorCompra);
-  } else if (
-    isCartao ||
-    (isConvenio && valorCompra < 100 && isPrimeiraCompra === false)
-  ) {
-    return compraQuinzePorCento(isConvenio, isCartao, valorCompra);
-  } else if (isPrimeiraCompra) {
-    return compraCincoPorCento(
-      valorCompra,
-      isConvenio,
-      isCartao,
-      isPrimeiraCompra
-    );
+
+  let valorTotalDesconto;
+  if (isPrimeiraCompra) {
+    valorTotalDesconto = compraCincoPorCento(valorCompra);
+    if (valorTotalDesconto > 100) {
+      return valorCompra - 100;
+    } else {
+      return valorTotalDesconto;
+    }
+  } else if (isCartao && isConvenio && !isPrimeiraCompra) {
+    valorTotalDesconto = compraDezPorCento(valorCompra);
+    if (valorTotalDesconto > 100) {
+      return valorCompra - 100;
+    } else {
+      return valorTotalDesconto;
+    }
+  } else if (isCartao || (isConvenio && !isPrimeiraCompra)) {
+    valorTotalDesconto = compraQuinzePorCento(valorCompra);
+    if (valorTotalDesconto > 100) {
+      return valorCompra - 100;
+    } else {
+      return valorTotalDesconto;
+    }
   } else {
     return valorCompra;
   }
 }
-console.log(validadorDesconto(100, false, false, true));
+console.log(validadorDesconto(800, false, false, true));

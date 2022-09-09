@@ -5,10 +5,10 @@ function validadorDesconto(
   isPrimeiraCompra
 ) {
   const compraCincoPorCento = (
+    valorCompra,
     isConvenio,
     isCartao,
-    isPrimeiraCompra,
-    valorCompra
+    isPrimeiraCompra
   ) => valorCompra - valorCompra * 0.05;
   const compraDezPorCento = (isConvenio, isCartao, valorCompra) =>
     valorCompra - valorCompra * 0.1;
@@ -27,9 +27,14 @@ function validadorDesconto(
   ) {
     return compraQuinzePorCento(isConvenio, isCartao, valorCompra);
   } else if (isPrimeiraCompra) {
-    return compraCincoPorCento;
+    return compraCincoPorCento(
+      valorCompra,
+      isConvenio,
+      isCartao,
+      isPrimeiraCompra
+    );
   } else {
     return valorCompra;
   }
 }
-console.log(validadorDesconto(100, true, true, false));
+console.log(validadorDesconto(100, false, false, true));

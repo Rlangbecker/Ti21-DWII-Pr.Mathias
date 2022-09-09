@@ -1,8 +1,7 @@
 function validadorDesconto(valorCompra,isConvenio,isCartao,isPrimeiraCompra) {
   const compraCincoPorCento = (valorCompra) => valorCompra - valorCompra * 0.05;
   const compraDezPorCento = (valorCompra) => valorCompra - valorCompra * 0.1;
-  const compraQuinzePorCento = (valorCompra) =>
-    valorCompra - valorCompra * 0.15;
+  const compraQuinzePorCento = (valorCompra) =>    valorCompra - valorCompra * 0.15;
 
   let valorTotalDesconto;
   if (isPrimeiraCompra) {

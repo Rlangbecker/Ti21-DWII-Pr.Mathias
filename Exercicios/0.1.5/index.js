@@ -31,6 +31,5 @@ function validadorDesconto(
   } else {
     return valorCompra;
   }
-
-  console.log(validadorDesconto(100, true, true, false));
 }
+console.log(validadorDesconto(100, true, true, false));

@@ -1,32 +1,28 @@
-function validadorDesconto(valorCompra,isConvenio,isCartao,isPrimeiraCompra) {
-  const compraCincoPorCento = (valorCompra) => valorCompra - valorCompra * 0.05;
-  const compraDezPorCento = (valorCompra) => valorCompra - valorCompra * 0.1;
-  const compraQuinzePorCento = (valorCompra) =>    valorCompra - valorCompra * 0.15;
+function validadorDesconto( valorTotalDesconto, valorCompra,LIMITE_DESCONTO = 100) {
+  if (valorTotalDesconto > LIMITE_DESCONTO) {
+    return valorCompra - LIMITE_DESCONTO;
+  }
+  return valorCompra - valorTotalDesconto;
+}
 
+function validadorCompra(valorCompra, isConvenio, isCartao, isPrimeiraCompra) {
+  const LIMITE_DESCONTO = 100;
   let valorTotalDesconto;
   if (isPrimeiraCompra) {
     valorTotalDesconto = valorCompra * 0.05;
-    if (valorTotalDesconto > 100) {
-      return valorCompra - 100;
-    } else {
-      return compraCincoPorCento(valorCompra);
-    }
+    return validadorDesconto(valorTotalDesconto, valorCompra);
   } else if (isCartao && isConvenio && !isPrimeiraCompra) {
     valorTotalDesconto = valorCompra * 0.15;
-    if (valorTotalDesconto > 100) {
-      return valorCompra - 100;
-    } else {
-      return compraQuinzePorCento(valorCompra);
-    }
+    return validadorDesconto(valorTotalDesconto, valorCompra);
   } else if (isCartao || (isConvenio && !isPrimeiraCompra)) {
-    valorTotalDesconto = valorCompra * 0.15;
-    if (valorTotalDesconto > 100) {
-      return valorCompra - 100;
-    } else {
-      return compraDezPorCento(valorCompra);
-    }
+    valorTotalDesconto = valorCompra * 0.1;
+    return validadorDesconto(valorTotalDesconto, valorCompra);
   } else {
     return valorCompra;
   }
 }
-console.log(validadorDesconto(800, true, true, false));
+console.log(validadorCompra(800, false, false, false));
+console.log(validadorCompra(800, false, false, true));
+console.log(validadorCompra(800, true, true, false));
+console.log(validadorCompra(800, true, false, false));
+console.log(validadorCompra(800, false, true, false));

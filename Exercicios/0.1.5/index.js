@@ -1,4 +1,8 @@
-function validadorDesconto( valorTotalDesconto, valorCompra,LIMITE_DESCONTO = 100) {
+function validadorDesconto(
+  valorTotalDesconto,
+  valorCompra,
+  LIMITE_DESCONTO = 100
+) {
   if (valorTotalDesconto > LIMITE_DESCONTO) {
     return valorCompra - LIMITE_DESCONTO;
   }
@@ -6,7 +10,6 @@ function validadorDesconto( valorTotalDesconto, valorCompra,LIMITE_DESCONTO = 10
 }
 
 function validadorCompra(valorCompra, isConvenio, isCartao, isPrimeiraCompra) {
-  const LIMITE_DESCONTO = 100;
   let valorTotalDesconto;
   if (isPrimeiraCompra) {
     valorTotalDesconto = valorCompra * 0.05;

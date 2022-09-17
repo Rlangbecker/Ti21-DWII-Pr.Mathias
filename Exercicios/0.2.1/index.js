@@ -27,4 +27,4 @@ const filmesFavoritos = [
   },
 ];
 
-console.log(filmesFavoritos);
+console.log(filmesFavoritos[0]);

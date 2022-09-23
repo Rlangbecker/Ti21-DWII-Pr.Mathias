@@ -54,3 +54,5 @@ const usuario = [
 ];
 
 console.log(usuario[0]);
+console.log(usuario[1]);
+console.log(usuario[2]);

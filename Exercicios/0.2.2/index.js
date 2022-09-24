@@ -56,3 +56,9 @@ const usuario = [
 console.log(usuario[0]);
 console.log(usuario[1]);
 console.log(usuario[2]);
+
+ricardo.comentarios.forEach(function (user) {
+  console.log(`'Comentarios de:' ${user}`);
+});
+
+console.log(user);

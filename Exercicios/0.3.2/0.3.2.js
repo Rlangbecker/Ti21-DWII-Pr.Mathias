@@ -30,7 +30,7 @@ function validarFuncoesConcluidas() {
 }
 
 function validarQuantFuncoesNaoConcluidas() {
-  return tarefas.filter((tarefa) => tarefa.concluida === false);
+  return tarefas.filter((tarefa) => tarefa.concluida === false).length;
 }
 
 function validarFuncoesConcluidasMenosTrintaDias() {

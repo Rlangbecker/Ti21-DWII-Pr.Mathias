@@ -1,0 +1,38 @@
+.container{
+  width: 100%;
+  text-align: center;
+}
+
+div.ul.li{
+  list-style: none;
+}
+
+button {
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  align-items: center;
+}
+
+
+.botaRedfield, .botaoBaker, .botaoTodos{
+  color: black;
+  width: 120px;
+  display: flex;
+}
+
+.botaRedfield{
+  background-color: red;
+}
+
+.botaoBaker{
+  background-color: green;
+}
+
+.botaoTodos{
+  background-color: yellow;
+}
+

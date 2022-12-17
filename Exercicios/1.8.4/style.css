@@ -1,0 +1,53 @@
+body {
+  background-color: grey;
+}
+
+.container {
+  width: 100%;
+  text-align: center;
+}
+
+div.ul.li {
+  list-style: none;
+}
+
+button {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  align-items: center;
+  gap: 5px;
+  color: white;
+}
+/**
+.tarefas {
+ background-color: red;
+  align-items: center;
+  width: 100%;
+  padding: 10%;
+}
+**/
+.input_nome {
+  align-items: center;
+  width: 10%;
+  float: left;
+}
+
+.button_all {
+  width: 20%;
+}
+.excluir {
+  background-color: red;
+}
+
+.adicionar {
+  background-color: green;
+}
+
+.retornar {
+  background-color: peru;
+}
+
+.tarefa_listada {
+  width: 40%;
+}

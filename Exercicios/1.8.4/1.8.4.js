@@ -1,7 +1,7 @@
+import { useEffect, useState } from 'react';
 import './styles.css';
-import { useState } from 'react';
-import { useEffect } from 'react';
 import axios from 'axios';
+import './styles.css';
 
 export default function App() {
   const [adicionada, setAdicionada] = useState('');
@@ -13,7 +13,7 @@ export default function App() {
 
   async function getTasks() {
     const url = 'https://68jb68bukl.execute-api.sa-east-1.amazonaws.com/tasks';
-    const resultado = await axios.get(url, { params: { user: 'Mathias' } });
+    const resultado = await axios.get(url, { params: { user: 'Ricardo' } });
     setTarefas(resultado.data);
   }
 
@@ -22,7 +22,7 @@ export default function App() {
       'https://68jb68bukl.execute-api.sa-east-1.amazonaws.com/tasks/' +
       '047d56f9-e546-4009-952f-29eac0a629eb';
     const resultado = await axios.get(url);
-    setTarefas(resultado.data);
+    console.log(resultado.data);
   }
 
   async function updateTask() {
@@ -30,7 +30,7 @@ export default function App() {
       'https://68jb68bukl.execute-api.sa-east-1.amazonaws.com/tasks/' +
       '047d56f9-e546-4009-952f-29eac0a629eb';
     const resultado = await axios.put(url, {
-      description: 'Ricardo, teste por favor gzus',
+      description: 'Teste ti21 - Ricardo',
     });
     console.log(resultado.data);
   }
@@ -58,9 +58,10 @@ export default function App() {
     getTasks();
   };
 
-  const excluirTarefa = async (index) => {
-    const novasTarefas = tarefas.filter((_, _index) => _index !== index);
-    setTarefas(novasTarefas);
+  const excluirTarefa = async (id) => {
+    await deleteTask(id);
+    deleteTask();
+    getTasks();
   };
 
   return (
@@ -86,11 +87,11 @@ export default function App() {
         </button>
       </div>
       <ul>
-        {tarefas.map((tarefa, index) => (
+        {tarefas.map((tarefa, id) => (
           <li>
             <div class="tarefa_listada">
               <span>{tarefa.description}</span>
-              <button class="excluir" onClick={() => excluirTarefa(index)}>
+              <button class="excluir" onClick={() => excluirTarefa(tarefa.id)}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                   <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
                 </svg>
